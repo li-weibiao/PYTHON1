@@ -1,0 +1,161 @@
+作业
+01----------------------------
+1 python基本的输入输出语句是什么？
+参考答案
+输入语句：input()
+输出语句：print()
+2 变量定义的要求有哪些？
+参考答案
+第一个字符只能是大小写字母或下划线
+后续字符只能是大小写字母或数字或下划线
+区分大小写
+3 以下代码能不能正确运行？为什么？
+1.	>>>  n += 1 
+参考答案
+不能运行。因为n += 1相当于是n = n + 1。赋值自右向左进行，在执行n + 1时，n还没有定义，将会出现NameError。
+4 Python常用的数据类型有哪些？
+参考答案
+•	数字 
+•	字符串 
+•	列表 
+•	元组 
+•	字典 
+5 python的数据类型是怎么分类的？
+参考答案
+按存储模型分类：
+•	标量：数字、字符串 
+•	容器：列表、元组、字典 
+按更新模型分类：
+•	可变：列表、字典 
+•	不可变：数字、字符串、元组 
+按访问模型分类：
+•	直接：数字 
+•	序列：列表、元组、字符串 
+•	映射：字典 
+
+
+
+1 x的值为10，y的值为20，用条件表达式如何取出比较大的数字？
+参考答案
+1.	>>> x = 10
+2.	>>> y = 20
+3.	>>> s = x if x > y else y
+4.	>>> print(s)
+5.	20
+2 while循环结构中，如果使用各种数据类型作为循环条件，哪些是True，哪些是False？
+参考答案
+•	任何值为0的数字都是False，非0数字为True 
+•	其他数据类型，非空对象为True，空为False 
+3 简述循环语句中break、continue和else的作用？
+参考答案
+•	break：结束循环，程序将会跳出循环，到循环体下面的语句处继续执行 
+•	continue：结束本次循环，程序将回到循环条件处，如果条件满足继续执行循环 
+•	else：当循环正常结束时执行else的语句，如果循环被break中断，else也将不会执行。 
+4 通过for循环与range函数，打印100以内的奇数
+参考答案
+1.	for i in range(1, 101, 2):
+2.	    print(i)
+
+
+
+1 读取一个文本文件的内容，有哪些方法？
+参考答案
+•	read()：读取指定数目的字节 
+•	readline()：读取一行 
+•	readlines()：读取全部内容，生成一个字符串列表，文件的每一行是列表中的每一项 
+•	通过for循环进行遍历 
+2 打开文件时，文件对象的访问模式有r、w和a。它们的区别是什么？
+参考答案
+•	r：以读方式打开（文件不存在则报错） 
+•	w：以写方式打开（文件存在则清空，不存在则创建） 
+•	a：以追加模式打开（必要时创建新文件） 
+3 有一个名为fobj的文件对象，fobj.seek(0, 2)表示什么？
+参考答案
+•	表示将文件指针移动到文件的结尾 
+4 函数默认的返回值是什么？如何自己手工指定返回值，使用哪个关键字？
+参考答案
+•	函数返回值默认是None 
+•	通过return关键字返回指定的结果。 
+5 python中如何使用位置参数？
+参考答案
+•	python将位置参数放到sys模块的argv列表中了 
+•	sys.argv列表中的第一个元素是python脚本本身 
+•	sys.argv列表中的其他元素是命令行上其他的命令行参数，对应shell脚本的$1、$2等 
+
+
+
+1 使用shutil模块的copyfileobj方法，将/etc/hosts拷贝到/tmp目录下，目标文件名为zhuji
+参考答案
+1.	import shutil
+2.	
+3.	with open('/etc/hosts', 'rb') as src_fobj:
+4.	    with open('/tmp/zhuji', 'wb') as dst_fobj:
+5.	        shutil.copyfileobj(src_fobj, dst_fobj)
+2 使用shutil模块的copy方法，将/etc/hosts拷贝到/tmp目录下，目标文件名为zhuji2
+参考答案
+1.	import shutil
+2.	shutil.copy('/etc/hosts', '/tmp/zhuji2')
+3 使用shutil模块，将/etc/security目录拷贝到/tmp目录下，目标目录名为anquan
+参考答案
+1.	import shutil
+2.	shutil.copytree('/etc/security', '/tmp/anquan')
+4 如何将两个变量a和b的值互换？
+参考答案
+1.	a = 10
+2.	b = 20
+3.	a, b = b, a
+5 标识符满足哪些条件，才是合法标识符？
+参考答案
+•	第一个字符必须是字母或下划线（_） 
+•	其余的字符可以是字母和数字或下划线 
+•	大小写敏感 
+6 如何获取python中所有的关键字？
+参考答案
+1.	>>> import keyword
+2.	>>> print(keyword.kwlist)
+3.	['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+7 举例说明python的模块文件布局
+参考答案
+1.	#!/usr/bin/env python                 #起始行
+2.	“this is a test module”               #模块文档字符串
+3.	import sys                             #导入模块
+4.	import os
+5.	debug = True                           #全局变量声明
+6.	class FooClass(object):               #类定义
+7.	    'Foo class'
+8.	    pass
+9.	def test():                            #函数定义
+10.	    "test function"
+11.	    foo = FooClass()
+12.	if __name__ == ‘__main__’:           #程序主体
+13.	    test()
+8 将name和age两个字符串进行格式化，name要求点10个宽度，age占8个宽度。它们都采用左对齐。
+参考答案
+1.	    '%-10s%-8s' % ('name', 'age')
+9 字符串变量astr的内容是hello。将其转换为大写字母的方法是astr.upper()，执行完毕后，astr会不会变成大写字母？为什么？
+参考答案
+•	不会变成大写字母。因为字符串是不可变类型，它能返回一个新的大写字母字符串，但是它本身不变。 
+
+
+1 获取字典adict['name']的值，如果没有找到，则返回'Not Found'
+参考答案
+1.	>>> adict.get('name', 'Not Found')
+2 遍历字典adict，通过两种方法取出字典的key和value。
+参考答案
+1.	>>> for key in adict:
+2.	...   print('%s: %s' % (key, adict[key]))
+3.	
+4.	>>> for key, val in adict.items():
+5.	...   print('%s: %s' % (key, val))
+3 aset和bset是两个可变集合，举例说明什么是交集、并集和差补。
+参考答案
+•	交集：aset & bset，取出两个集合中都包含的元素 
+•	并集：aset | bset，取出两个集合中所有的元素 
+•	差补：aset - bset，取出在第一个集合中有，而第二个集合中没有的元素 
+4 ('hello')是哪种数据类型
+参考答案
+('hello')是元组。单元素元组需要注意，元素后面必须有个逗号，否则构不成元组。
+5 列表根据不同的分类方式，都属于哪些类型？
+参考答案
+列表按存储模型来分，属于容器类型；按更新模型来分，属于可变型；按访问模型来分，属于序列类型。
+
